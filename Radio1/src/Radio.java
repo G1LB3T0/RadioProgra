@@ -1,13 +1,7 @@
 public class Radio {
     boolean power;
-    double emisora;
-    String frecuencia;
-
-    public Radio() {
-    }
-
-    public Radio(boolean power, double emisora, String frecuencia) {
-    }
+    float emisora;
+    boolean frecuencia;
 
     public boolean isPower() {
         return power;
@@ -17,19 +11,28 @@ public class Radio {
         this.power = power;
     }
 
-    public double getEmisora() {
+    public float getEmisora() {
         return emisora;
     }
 
-    public void setEmisora(double emisora) {
+    public void setEmisora(float emisora) {
         this.emisora = emisora;
     }
 
-    public String getFrecuencia() {
+    public boolean isFrecuencia() {
         return frecuencia;
     }
 
-    public void setFrecuencia(String frecuencia) {
+    public void setFrecuencia(boolean frecuencia) {
+        this.frecuencia = frecuencia;
+    }
+
+    public Radio() {
+    }
+
+    public Radio(boolean power, float emisora, boolean frecuencia) {
+        this.power = power;
+        this.emisora = emisora;
         this.frecuencia = frecuencia;
     }
 }
