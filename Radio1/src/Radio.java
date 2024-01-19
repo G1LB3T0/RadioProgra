@@ -3,6 +3,12 @@ public class Radio {
     double emisora;
     String frecuencia;
 
+    public Radio() {
+    }
+
+    public Radio(boolean power, double emisora, String frecuencia) {
+    }
+
     public boolean isPower() {
         return power;
     }

@@ -1,4 +1,9 @@
 public class Controlador implements IRadio{
+    Radio fm = new Radio(false, 90.2, "FM");
+
+    public Controlador() {
+    }
+
     public void On() {
 
     }
@@ -10,7 +15,7 @@ public class Controlador implements IRadio{
 
     @Override
     public void tooglePowerOffOn() {
-
+        
     }
 
     @Override
