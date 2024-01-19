@@ -1,14 +1,14 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 public class Controlador implements IRadio{
     Radio radiomain = new Radio(false, 87.2F, true);
-
+    private ArrayList<Float> emisorasFavoritas = new ArrayList<>();
     public Controlador() {
     }
 
     public void On() {
 
     }
-
     @Override
     public boolean getState() {
         return radiomain.isPower();
@@ -92,11 +92,21 @@ public class Controlador implements IRadio{
 
     @Override
     public void setFavFrequency(int button) {
-
+        if (button >= 1 && button <= 5) {
+            emisorasFavoritas.add(Main.controlador.getCurrentFrequency());
+            System.out.println("Emisora guardada en el botón " + button);
+        } else {
+            System.out.println("Número de botón no válido. Solo se admiten botones del 1 al 5.");
+        }
     }
 
     @Override
     public float getFavFrequency(int button) {
-        return 0;
+            if (button >= 1 && button <= 5 && emisorasFavoritas.size() >= button) {
+            return emisorasFavoritas.get(button - 1);
+        } else {
+            System.out.println("Número de botón no válido o no hay emisora guardada en ese botón.");
+            return 0;
+        }
     }
 }
