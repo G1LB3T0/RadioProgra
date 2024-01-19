@@ -19,7 +19,7 @@ public class Main {
                     System.out.println("RADIO");
                     System.out.println("FRECUENCIA: " + frecuencia);
                     System.out.println("Sonando: " + controlador.getCurrentFrequency());
-                    System.out.println("Que desea hacer?\n 1. Siguiente emisora\n 2. Anterior emisora\n 3. Cambiar frecuencia\n 4. Apagar radio");
+                    System.out.println("Que desea hacer?\n 1. Siguiente emisora\n 2. Anterior emisora\n 3. Cambiar frecuencia\n 4. Guardar Emisora\n 5. Mostrar Emisoras Favoritas\n 6. Apagar radio");
                     int opcionRadio = sc.nextInt();
 
                     switch (opcionRadio) {
@@ -36,6 +36,19 @@ public class Main {
                             System.out.println("Frecuencia cambiada a " + (controlador.getStateAMFM() ? "FM" : "AM"));
                             break;
                         case 4:
+                            System.out.println("Seleccione un botón para guardar la emisora (1-5): ");
+                            int botonGuardar = sc.nextInt();
+                            controlador.setFavFrequency(botonGuardar);
+                            break;
+                        case 5:
+                            System.out.println("Seleccione un botón para mostrar la emisora favorita (1-5): ");
+                            int botonMostrar = sc.nextInt();
+                            float emisoraFavorita = controlador.getFavFrequency(botonMostrar);
+                            if (emisoraFavorita != 0) {
+                                System.out.println("Emisora favorita en el botón " + botonMostrar + ": " + emisoraFavorita);
+                            }
+                            break;
+                        case 6:
                             controlador.tooglePowerOffOn();
                             System.out.println("Apagando la radio.");
                             break;
